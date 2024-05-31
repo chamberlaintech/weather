@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", serif;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #0A1128 0%, #1F4068 100%);
+  color: #FEFCFB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+
+.error-message {
+  color: #ff4d4d;
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.weather-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  min-width: 800px;
+  border: 1px solid #A9D6E5;
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loader-container {
+  padding: 8rem;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+}
+
+.weather-container-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.loader-title {
+  display: none;
+}
+
+
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  background-color: #FEFCFB;
+  color: #0A1128;
+  border: none;
+  padding: 0.625rem;
+  /* 10px */
+  border-radius: 5px;
+  outline: none;
+  width: 290px;
+  font-size: 1rem;
+  height: 2.5rem;
+  /* Ensures the input and button have the same height */
+}
+
+.search-button {
+  background-color: #A9D6E5;
+  color: #0A1128;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  height: 2.5rem;
+  /* Ensures the input and button have the same height */
+  margin-left: 1rem;
+}
+
+.search-button:hover {
+  background-color: #0A1128;
+  color: #A9D6E5;
+}
+
+.loader-search {
+  display: none;
+}
+
+.suggestions-container {
+  margin-top: 0.5rem;
+  background-color: #FEFCFB;
+  color: #0A1128;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.suggestion:hover {
+  background-color: #A9D6E5;
+}
+
+.current-weather {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.current-weather h2 {
+  color: #A9D6E5;
+  font-size: 28px;
+}
+
+.weather-info {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+  gap: 5rem;
+}
+
+.location-date,
+.temp-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-date h3,
+.temp-desc h3 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.location-date span,
+.temp-desc p {
+  font-size: 14px;
+  color: #A9D6E5;
+  font-weight: 300;
+  margin-top: 0.25rem;
+  text-transform: capitalize;
+}
+
+.air-conditions {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.air-conditions h2 {
+  color: #A9D6E5;
+  font-size: 28px;
+}
+
+.air-conditions-info {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 3rem 0;
+  gap: 4rem;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.air-conditions-info p {
+  font-size: 14px;
+  color: #A9D6E5;
+  font-weight: 300;
+}
+
+.air-conditions h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .weather-info {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .weather-container {
+    min-width: auto;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 0;
+  }
+
+  .weather-info {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .air-conditions-info {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .weather-container-title {
+    font-size: 28px;
+    margin-bottom: 2rem;
+  }
+
+  .current-weather h2,
+  .air-conditions h2 {
+    font-size: 24px;
+  }
+
+  .location-date h3,
+  .temp-desc h3,
+  .air-conditions h3 {
+    font-size: 24px;
+  }
+}
